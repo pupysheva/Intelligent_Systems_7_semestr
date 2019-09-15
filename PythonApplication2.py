@@ -2,12 +2,6 @@ class Neuron:
     def __init__(self,ind,weight_mass):#Массив весов включает w11,w21,...,T
         self.ind = ind
         self.weight_mass = weight_mass
-    def set_weight_i(self, w,i):
-        for j in self.weight_mass:
-            if j==i:
-                self.weight_mass[j] = w
-    def get_weights(self):
-        return self.weight_mass
     def modification_w(self, obraz):
         for i in range(len(self.weight_mass)):
             if i==len(self.weight_mass)-1:
@@ -54,11 +48,10 @@ flag = True
 #for indNer in range(len(list_nerons)):
 for temp in range(20):
     for indNer in range(len(list_neurons)):
-        for c in range(1):
-            for ob in list_obr:
-                if(list_neurons[indNer].NET_OUT(ob)!=ob[1][indNer]):
-                    list_neurons[indNer].modification_w(ob)
-                    list_neurons[indNer].printer()
+        for ob in list_obr:
+            if(list_neurons[indNer].NET_OUT(ob)!=ob[1][indNer]):
+                list_neurons[indNer].modification_w(ob)
+                list_neurons[indNer].printer()
 for j in list_neurons:
     print("NERON")
     j.printer()
