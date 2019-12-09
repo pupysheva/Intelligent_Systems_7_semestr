@@ -87,17 +87,23 @@ for i in list_neurons:
     i.printer()
 
 print("\nРаспознание образов:")
-print(end = '\t')
+print('\t',end = "\t")
 for j in range(len(list_neurons)):
     print("{0}".format(j),end = '  ')
 print()
-for j in list_neurons:# строка это образ
-    print("ОБРАЗ: ", end = '\t')
-    for c in list_obr:
-        if j.NET_OUT(c) == 1 :
-            print(j.NET_OUT(c),end = '  ')
+for ind_c,c in enumerate(list_obr):# строка это образ
+    print("ОБРАЗ ",list_name_neurons[ind_c],":", end = '\t')
+    for ind_j,j in enumerate(list_neurons):
+        str_ = " "
+
+        if(len(str(ind_j))>1):
+            str_ = '   '
+        else: str_ = '  '
+
+        if j.NET_OUT(c) == 1:
+            print(j.NET_OUT(c),end = str_)
         else:
-            print('-',end = ' ')
+            print('-',end = str_)
     print('\n')
 
 test_obraz = [[1,1,1,1,1,-1,-1,1,-1,-1,-1,-1,1,-1,-1,-1,-1,1,-1,-1,1,-1,1,-1,-1,-1],[]]; #Like T

@@ -61,18 +61,17 @@ for temp in range(20):
                 list_neurons[indNer].modification_w(ob)
                 list_neurons[indNer].printer()
 for j in list_neurons:
-    print("NERON")
+    print("NERON"," ", end = "")
     j.printer()
-    print("\n")
 
-print(end = '\t')
+print(end = '\t\t')
 for j in range(len(list_neurons)):
-    print("Н: {0}".format(j),end = '\t')
+    print("Ne: {0}".format(j),end = '\t')
 print()
-for j in list_neurons:# строка это образ
-    print("ОБРАЗ: ",end = '\t')
-    for c in list_obr:
-        print(j.NET_OUT(c),end = '\t')
+for ind_c,c in enumerate(list_obr):# строка это образ
+    print("ОБРАЗ:",ind_c,end = '\t')
+    for j in list_neurons:
+        print(j.NET_OUT(c) if (j.NET_OUT(c)==1) else "-" ,end = '\t')
     print('\n')
 
 test_obraz = test_obraz =  [[1,-1,1,-1,1,1,1,-1,1,-1,-1,1,1,-1,1,-1],[-1,1,-1,-1,-1,-1,-1,-1,-1,-1]]#больше похоже на 1
